@@ -1,0 +1,1 @@
+tsc .\src\main.ts --t es6 --watch

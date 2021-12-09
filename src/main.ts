@@ -24,28 +24,33 @@ console.log(compare('aA', "aAAAnduasnd"));
  */
 //  LESSION 3
 // Cộng 2 mảng
-/**
-let number1 = '';
-let number2 = '';
-let result = [];
-let les3 =  (num1 : number[], num2 : number[]) : number[] => {
-    for (let i = num1.length-1; i >= 0; i--) {
-       number1 = number1 + num1[i].toString();
-    }
-    for (let i = num2.length-1; i >= 0; i--) {
-        number2 = number2 + num2[i].toString();
-    }
-    var n1 = +number1;
-    var n2 = +number2;
-    var temp = (n1 + n2).toString();
-    for (let i = temp.length-1; i >= 0; i--) {
-        result.push(temp[i]);
-    }
-    return result;
+
+/** 
+let les3 = (num1: number[], num2: number[]): number[] => {
+    // let number1 = '';
+    // let number2 = '';
+    // let result = [];
+    // for (let i = num1.length - 1; i >= 0; i--) {
+    //     number1 = number1 + num1[i].toString();
+    // }
+    // for (let i = num2.length - 1; i >= 0; i--) {
+    //     number2 = number2 + num2[i].toString();
+    // }
+    // var n1 = +number1;
+    // var n2 = +number2;
+    // var temp = (n1 + n2).toString();
+    // for (let i = temp.length - 1; i >= 0; i--) {
+    //     result.push(temp[i]);
+    // }
+    // return result;
+
+    return (+num1.reverse().join('') + (+num2.reverse().join(''))).toString().split('').reverse().map(x => +x);
+
 }
 
-console.log(les3([5,4,2,3], [6,3]));
- */
+// console.log(les3([5, 4, 2, 3], [6, 3])); // [1, 8, 2, 3]
+console.log(les3([2, 4, 3], [5, 6, 4])); // [7, 0, 8]
+*/
 
 //LESSION 4
 // tìm số lớn nhất trong các mảng con
@@ -361,3 +366,47 @@ console.log(number([[3, 0], [9, 1], [4, 8], [12, 2], [6, 1], [7, 8]]));
 let countSmileys = (arr: string[]) => arr.filter(f => /^[:;][~-]?[D\)]$/.test(f)).length;
 console.log(countSmileys([':)', ';(', ';}', ':-D']));
 */
+
+
+/**
+// binary search;
+function search(nums: number[], target: number): number {
+    let mid;
+    let left = 0;
+    let right = nums.length - 1;
+    while (left <= right) {
+        mid = Math.floor(left + (right - left) / 2);
+        if (nums[mid] == target) {
+            return mid;
+        }
+        if (nums[mid] > target) {
+            right = mid - 1;
+        } else {
+            left = mid + 1;
+        }
+    }
+    return -1;
+
+    // return nums.indexOf(target);
+};
+
+console.log(search([-1, 0, 3, 5, 9, 12], 9));
+ */
+
+
+let solution = (nums1: number[], nums2: number[]) => {
+    let arr = [...nums1, ...nums2].sort((a, b) => a - b);
+    if (arr.length % 2 === 0) {
+        return (arr[(arr.length / 2) - 1] + arr[arr.length / 2]) / 2;
+    } else {
+        return arr[(arr.length - 1) / 2];
+    }
+
+}
+console.log(solution([1,3],[2]));
+console.log(solution([1, 2], [3, 4]));
+console.log(solution([3,5,6], [-2,-1]));
+console.log(solution([],[1]));
+
+
+

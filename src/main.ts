@@ -394,19 +394,58 @@ console.log(search([-1, 0, 3, 5, 9, 12], 9));
  */
 
 
-let solution = (nums1: number[], nums2: number[]) => {
-    let arr = [...nums1, ...nums2].sort((a, b) => a - b);
-    if (arr.length % 2 === 0) {
-        return (arr[(arr.length / 2) - 1] + arr[arr.length / 2]) / 2;
-    } else {
-        return arr[(arr.length - 1) / 2];
-    }
+// let solution = (nums1: number[], nums2: number[]) => {
+//     let arr = [...nums1, ...nums2].sort((a, b) => a - b);
+//     if (arr.length % 2 === 0) {
+//         return (arr[(arr.length / 2) - 1] + arr[arr.length / 2]) / 2;
+//     } else {
+//         return arr[(arr.length - 1) / 2];
+//     }
 
-}
-console.log(solution([1,3],[2]));
-console.log(solution([1, 2], [3, 4]));
-console.log(solution([3,5,6], [-2,-1]));
-console.log(solution([],[1]));
+// }
+// console.log(solution([1,3],[2]));
+// console.log(solution([1, 2], [3, 4]));
+// console.log(solution([3,5,6], [-2,-1]));
+// console.log(solution([-1,-2],[1]));
 
+//leetcode problem 209
+// let minimumSubArrayLength = (target : number, numbers: number[]): number => {
+//     let distance = Number.MAX_SAFE_INTEGER; // initial value to check distance change or not.
+//     let left  = 0;
+//     let sum = 0;
+//     for(let right = 0; right < numbers.length ; right++){
+//         sum += numbers[right];
+//         while(sum >= target){
+//             //finding the minimum distance by remove numbers[left] and add numbers[right]
+//             distance = Math.min(distance, right - left + 1);
+//             sum -= numbers[left];
+//             left++;
 
+//         }
+//     }
+//     return distance === Number.MAX_SAFE_INTEGER ? 0 : distance
+// }
 
+// console.log(minimumSubArrayLength(7,[2,3,1,2,4,3]))
+
+//leetcode 1071
+// function gcdOfStrings(str1: string, str2: string): string {
+//     if (str1 + str2 !== str2 + str1) return ''; //make sure 2 string have same substring and the substring repeat
+//     const gcd = (a : number, b : number) : number => (0 === b ? a : gcd(b, a % b)); //logic: str1 % str2 = 0, then str2 is greates substring, 
+//                                                                                     // if not, the remainder is the greatest substring
+//     return str1.substring(0, gcd(str1.length, str2.length)); //get substring by using gcd
+// };
+// console.log(gcdOfStrings("ABCABC","ABC"))
+// console.log(gcdOfStrings("ABABAB","ABAB"))
+// console.log(gcdOfStrings("LEET","CODE"))
+
+//leetcode 453
+// function minMoves(nums: number[]): number {
+//     let sum = nums[0];
+//     let min = nums[0];
+//     for(let i = 1 ; i < nums.length ; i++){
+//         if(nums[i] < min) min = nums[i];
+//         sum += nums[i];
+//     }
+//     return sum - (nums.length * min);
+// };

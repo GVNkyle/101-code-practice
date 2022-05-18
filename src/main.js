@@ -377,4 +377,4 @@ let solution = (nums1, nums2) => {
 console.log(solution([1, 3], [2]));
 console.log(solution([1, 2], [3, 4]));
 console.log(solution([3, 5, 6], [-2, -1]));
-console.log(solution([], [1]));
+console.log(solution([-1, -2], [1]));
